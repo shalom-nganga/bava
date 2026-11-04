@@ -1,0 +1,117 @@
+:root{--bg:#0b100d;--bg2:#101812;--surface:#141d17;--ink:#f3efe6;--muted:#a9b3aa;--acc:#e2a24b;--green:#1f8a52;--line:#2a3a2f;--onacc:#1a1205;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:dark}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#faf7f0;--bg2:#f1ece0;--surface:#fff;--ink:#17231b;--muted:#5d6b61;--acc:#a8650f;--green:#17703f;--line:#ded6c4;--onacc:#fff;color-scheme:light}}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 100px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 "Jost",system-ui,sans-serif}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1.1;margin:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+.mq{background:var(--bg);border-bottom:1px solid var(--line);overflow:hidden;white-space:nowrap;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);padding:7px 0}
+.mq div{display:inline-flex;gap:0;animation:mq 30s linear infinite}
+.mq span{padding:0 28px}.mq span:after{content:"+";margin-left:56px}
+@keyframes mq{to{transform:translateX(-50%)}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;gap:20px;height:64px;max-width:1160px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font:600 19px "Cormorant Garamond",serif;letter-spacing:.2em}
+nav{margin-left:auto;display:flex;gap:22px;font-size:14px;align-items:center}
+nav a{text-decoration:none}nav a:hover{color:var(--acc)}
+.burger{display:none;flex:none;width:42px;min-width:42px;height:42px;border:1px solid var(--acc);background:none;border-radius:6px;cursor:pointer;padding:0}
+.burger span{display:block;width:18px;height:2px;background:var(--acc);margin:auto;box-shadow:0 -6px 0 var(--acc),0 6px 0 var(--acc)}
+@media(max-width:900px){.burger{display:block;margin-left:auto}
+nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:6px 24px 14px;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.open{display:flex}nav a{padding:13px 0;border-bottom:1px solid var(--line)}}
+.sw{display:inline-flex;border:1px solid var(--green);border-radius:999px;background:rgba(31,138,82,.15)}
+.sw button{border:0;background:none;color:#7ee0a8;font:600 11px "Jost";letter-spacing:.08em;text-transform:uppercase;padding:6px 14px;border-radius:999px;cursor:pointer}
+.sw button[aria-pressed="true"]{background:var(--green);color:#fff}
+.btn{display:inline-block;border:1px solid var(--acc);border-radius:2px;padding:12px 26px;font:500 14px "Jost",sans-serif;letter-spacing:.04em;background:var(--acc);color:var(--onacc);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.hero{position:relative;min-height:640px;display:flex;align-items:center;overflow:hidden;background:var(--bg2)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s;background-size:cover;background-position:center}
+.slide.on{opacity:1}
+.hero .wrap{position:relative;padding-top:80px;padding-bottom:90px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hours b{color:var(--acc);font:600 11px "Jost";letter-spacing:.2em;text-transform:uppercase}
+@media(max-width:700px){.hours{display:none}}
+section{padding:84px 0;border-top:1px solid var(--line)}
+.kick{color:var(--acc);font:500 12px "Jost";letter-spacing:.28em;text-transform:uppercase;margin-bottom:14px}
+section h2{font-size:clamp(34px,5vw,52px);margin-bottom:14px}
+.sub{color:var(--muted);font-style:italic;max-width:56ch;margin:0 0 30px}
+.center{text-align:center}.center .sub{margin-left:auto;margin-right:auto}
+.vals{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:26px}
+.vals div{border-left:2px solid var(--acc);padding-left:16px}
+.vals h3{font-size:22px;color:var(--acc)}.vals p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.mbar{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;background:var(--bg2)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;text-align:left}
+.card{background:var(--surface);border:1px solid var(--line);padding:10px}
+.card h3{font-size:24px;margin:6px 6px 2px}.card p{margin:0 6px;color:var(--muted);font-size:14px}
+.ph{height:150px;display:grid;place-items:center;font-size:58px;background:var(--bg2)}
+.price{font:600 20px "Cormorant Garamond",serif;color:var(--acc)}
+.add{border:1px solid var(--acc);background:none;color:var(--acc);padding:5px 16px;font:500 13px "Jost";cursor:pointer}
+.add:hover{background:var(--acc);color:var(--onacc)}
+.row{display:flex;justify-content:space-between;align-items:center;margin:12px 6px 6px}
+.plate{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media(max-width:760px){.plate{grid-template-columns:1fr}}
+.disc{width:min(320px,80vw);aspect-ratio:1;border-radius:50%;border:1px solid var(--acc);outline:1px solid var(--line);outline-offset:10px;display:grid;place-items:center;font-size:120px;margin:auto;background:var(--surface)}
+.parts{list-style:none;margin:0;padding:0}
+.parts li{display:flex;gap:14px;align-items:baseline;border-bottom:1px solid var(--line);padding:12px 0}.parts b{font:600 22px "Cormorant Garamond";color:var(--acc);min-width:130px}.parts span{color:var(--muted)}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.tile{border:1px solid var(--line);aspect-ratio:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:flex-start;padding:14px;color:#fff;font:500 14px "Jost";text-align:left;cursor:pointer;position:relative;overflow:hidden}
+.tile{background-size:cover;background-position:center}
+.tile:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75))}
+.tile:hover{border-color:var(--acc)}
+.tile>*{position:relative;z-index:1}
+#lp{height:auto!important;font-size:inherit!important;display:block;background:none}
+#lp img{width:100%;max-height:70vh;object-fit:contain;display:block}
+.tile small{letter-spacing:.14em;text-transform:uppercase;font-size:10px;opacity:.85}
+form{display:grid;gap:14px;max-width:460px}
+input,select{font:inherit;padding:12px 14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:2px}
+label{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:grid;gap:6px}
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start}
+@media(max-width:760px){.loc{grid-template-columns:1fr}}
+.loc p{margin:6px 0}.loc b{color:var(--ink)}
+.frame{border:1px solid var(--acc);outline:1px solid var(--line);outline-offset:5px;padding:26px;background:var(--surface);margin:5px}
+.frame h3{font-size:28px;color:var(--acc);margin-bottom:6px}
+dialog{border:1px solid var(--line);padding:0;width:min(760px,94vw);max-height:88vh;background:var(--bg);color:var(--ink)}
+dialog::backdrop{background:rgba(0,0,0,.75)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg)}
+.dh button.x{border:0;background:none;color:var(--ink);font-size:30px;cursor:pointer}
+.tabs{padding:16px 24px 0}
+.tabs select{width:100%;border:2px solid var(--acc);border-radius:8px;background:var(--bg);color:var(--ink);font:500 15px "Jost";padding:12px 14px;cursor:pointer}
+.lh{font-size:30px;margin:4px 0 4px}
+.lr{display:flex;align-items:baseline;gap:10px}.lr h3{font:500 16px "Jost";white-space:normal}
+.dots{flex:1;border-bottom:1px dotted var(--line);min-width:16px;transform:translateY(-4px)}
+.tabs button{flex:none;border:1px solid var(--line);background:none;color:var(--ink);padding:7px 16px;font:500 13px "Jost";cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--acc);color:var(--onacc);border-color:var(--acc)}
+.list{padding:16px 24px 24px;display:grid;gap:10px}
+.li{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:8px 0}
+.li span.e{font-size:28px}.li p{margin:0;color:var(--muted);font-size:13px}.li h3{font-size:20px}
+.note{font-size:12px;color:var(--muted);margin-top:18px}
+footer{border-top:1px solid var(--line);background:var(--bg2);color:var(--muted);padding:40px 0 100px;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between}
+footer a{display:block;text-decoration:none;margin:4px 0}footer a:hover{color:var(--acc)}footer b{color:var(--acc);font:600 12px "Jost";letter-spacing:.2em;text-transform:uppercase}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--surface);border-top:1px solid var(--acc);display:none;z-index:20}
+.bar.on{display:flex;align-items:center;justify-content:space-between;gap:12px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.slide{transition:none}.mq div{animation:none}}
+.anat{position:relative;border:1px solid var(--acc);outline:1px solid var(--line);outline-offset:6px;margin:7px;line-height:0}
+.anat img{width:100%;height:auto;display:block}
+.anat b{position:absolute;transform:translate(-50%,-50%);width:30px;height:30px;border-radius:50%;background:var(--acc);color:var(--onacc);display:grid;place-items:center;font:600 14px/1 "Jost";box-shadow:0 0 0 3px rgba(0,0,0,.45)}
+.parts{counter-reset:p}.parts li{counter-increment:p}.parts li:before{content:counter(p);flex:none;width:26px;height:26px;border-radius:50%;border:1px solid var(--acc);color:var(--acc);display:grid;place-items:center;font:500 13px "Jost"}
+.hero:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(8,12,9,.55),rgba(8,12,9,.72))}
+.hero .wrap,.hours{z-index:2}
+@media(max-width:700px){.hero:before{background:rgba(8,12,9,.68)}}
+.hero h1{font-size:clamp(36px,6.4vw,72px);font-weight:500;line-height:1.12;color:#f3efe6}
+.hero h1:before{content:"";display:block;width:34px;height:1px;background:var(--acc);margin:0 auto 32px}
+.hero h1 em{display:block;font-style:italic;font-weight:500}
+.halal{margin:40px 0 34px;color:var(--acc);font:500 14px "Jost";letter-spacing:.38em}
+.cta{display:flex;align-items:center;justify-content:center;gap:34px;flex-wrap:wrap}
+.btn.pill{border-radius:999px;padding:14px 32px}
+.link{color:#f3efe6;text-decoration:none;font:500 13px "Jost";letter-spacing:.14em;text-transform:uppercase}
+.link:hover{color:var(--acc)}
+.hours{position:absolute;left:max(24px,calc(50% - 560px));top:24px;border:1px solid var(--line);background:rgba(11,16,13,.7);padding:14px 20px;font-size:13px;color:var(--muted);line-height:1.5}
+.hdots{position:absolute;left:0;right:0;bottom:30px;display:flex;justify-content:center;gap:12px;z-index:2}
+.hdots button{width:9px;height:9px;padding:0;border-radius:50%;border:1px solid var(--acc);background:none;cursor:pointer}
+.hdots button.on{background:var(--acc)}
+.mapbox{border:1px solid var(--acc);outline:1px solid var(--line);outline-offset:5px;margin:5px;height:360px;background:var(--surface)}
+.mapbox iframe{width:100%;height:100%;display:block}
+.sph{height:190px;background-size:cover;background-position:center}
+.cols .card{display:flex;flex-direction:column}.cols .card .row{margin-top:auto;padding-top:12px}
