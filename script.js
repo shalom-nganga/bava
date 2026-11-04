@@ -32,3 +32,18 @@ var bg=$("burger"),nv=$("nav");
 function nav(o){nv.classList.toggle("open",o);bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Close menu":"Open menu")}
 bg.addEventListener("click",function(){nav(!nv.classList.contains("open"))});
 nv.addEventListener("click",function(e){if(e.target.tagName==="A")nav(false)});
+var loader=$("pageLoader");
+if(loader){
+  loader.hidden=false;
+  document.body.style.overflow="hidden";
+  var pageReady=document.readyState==="complete",minTimeElapsed=false;
+  function dismissLoader(){
+    if(!pageReady||!minTimeElapsed)return;
+    loader.classList.add("is-exiting");
+    loader.setAttribute("aria-hidden","true");
+    document.body.style.overflow="";
+    setTimeout(function(){loader.hidden=true},600);
+  }
+  window.addEventListener("load",function(){pageReady=true;dismissLoader()},{once:true});
+  setTimeout(function(){minTimeElapsed=true;dismissLoader()},650);
+}

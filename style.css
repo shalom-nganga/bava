@@ -115,3 +115,16 @@ footer a{display:block;text-decoration:none;margin:4px 0}footer a:hover{color:va
 .mapbox iframe{width:100%;height:100%;display:block}
 .sph{height:190px;background-size:cover;background-position:center}
 .cols .card{display:flex;flex-direction:column}.cols .card .row{margin-top:auto;padding-top:12px}
+.page-loader{position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--bg);color:var(--ink);transition:opacity .55s ease,visibility .55s ease}
+.page-loader[hidden]{display:none}
+.page-loader:before{content:"";position:absolute;inset:20px;border:1px solid var(--line);pointer-events:none}
+.loader-mark{width:94px;height:94px;display:grid;place-items:center;border:1px solid var(--acc);border-radius:50%;outline:1px solid var(--line);outline-offset:7px;animation:loader-glow 2s ease-in-out infinite}
+.loader-mark img{width:68px;height:68px;border-radius:50%;object-fit:cover}
+.loader-name{margin-top:32px;color:var(--acc);font:600 19px "Cormorant Garamond",serif;letter-spacing:.28em}
+.loader-caption{margin-top:6px;color:var(--muted);font:italic 14px "Jost",sans-serif}
+.loader-track{width:120px;height:1px;margin-top:24px;overflow:hidden;background:var(--line)}
+.loader-track span{display:block;width:40%;height:100%;background:var(--acc);animation:loader-progress 1.2s ease-in-out infinite}
+.page-loader.is-exiting{opacity:0;visibility:hidden}
+@keyframes loader-glow{50%{box-shadow:0 0 24px rgba(226,162,75,.16)}}
+@keyframes loader-progress{from{transform:translateX(-110%)}to{transform:translateX(260%)}}
+@media(prefers-reduced-motion:reduce){.loader-mark,.loader-track span{animation:none}.loader-track span{width:100%}.page-loader{transition:none}}
